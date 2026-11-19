@@ -3,7 +3,7 @@
 > 把一个"管理会计期末案例题"变成**可逐行验算**的决策报告：识别题型 → 判定相关成本 → 选对方法 → 分步计算 → 给结论。
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.1-blue.svg)](CHANGELOG.md)
 [![Language](https://img.shields.io/badge/language-%E4%B8%AD%E6%96%87-red.svg)](#)
 [![Course](https://img.shields.io/badge/course-%E7%AE%A1%E7%90%86%E4%BC%9A%E8%AE%A1-green.svg)](#)
 
