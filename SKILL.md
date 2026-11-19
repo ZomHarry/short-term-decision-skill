@@ -3,7 +3,7 @@ name: short-term-decision
 title: 管理会计短期经营决策
 description: 管理会计短期经营决策——题型路由、相关成本识别、成本无差别点／差量／贡献毛益／经济批量的计算与结论输出。适用于自制外购、特殊订货、亏损产品去留、半成品深加工、生产工艺选择、最优生产批量、资源受限下的品种组合。
 version: 1.1.0
-license: MIT
+license: CC-BY-NC-SA-4.0
 language: zh-CN
 tags: [management-accounting, decision-making, cost-accounting, education, chinese]
 triggers:

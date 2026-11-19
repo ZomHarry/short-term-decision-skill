@@ -2,7 +2,7 @@
 
 > 把一个"管理会计期末案例题"变成**可逐行验算**的决策报告：识别题型 → 判定相关成本 → 选对方法 → 分步计算 → 给结论。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](CHANGELOG.md)
 [![Language](https://img.shields.io/badge/language-%E4%B8%AD%E6%96%87-red.svg)](#)
 [![Course](https://img.shields.io/badge/course-%E7%AE%A1%E7%90%86%E4%BC%9A%E8%AE%A1-green.svg)](#)
@@ -99,9 +99,26 @@ short-term-decision-skill/
 
 ## 许可证与声明
 
-- 本仓库的**提示词、模板、决策树、测试题、代码片段**采用 [MIT License](LICENSE) 授权，可自由使用、修改、分发。
-- **公式与规则表述**来自课程讲义，仅用于学习与教学；教材原文著作权归原作者与出版社所有，本仓库为知识点整理，不含教材原文的成段复制。若权利人认为存在不当使用，请联系删除。
+本仓库采用 [**CC BY-NC-SA 4.0**](LICENSE)（署名—非商业性使用—相同方式共享 4.0 国际）授权：
+
+| 你可以 | 但必须 |
+| --- | --- |
+| 复制、分发、修改、二次创作 | **署名**：注明作者并附协议链接 |
+| 用于教学、学习、个人项目 | **非商业**：不得用于商业目的 |
+| 打包进自己的课程或笔记 | **相同方式共享**：衍生作品须用同一协议 |
+
+- **商业使用**需单独取得授权，请开 Issue 联系作者。
+- **公式与规则表述**整理自管理会计课程讲义，仅用于学习与教学；教材原文著作权归原作者与出版社所有，本仓库为知识点整理，不含教材原文的成段复制。若权利人认为存在不当使用，请联系删除。
 - 本仓库**不构成任何会计、审计或投资建议**。实务决策请以企业实际成本资料与专业意见为准。
+
+**建议署名格式**
+
+```text
+管理会计短期经营决策 Skill, by ZomHarry, licensed under CC BY-NC-SA 4.0.
+https://github.com/ZomHarry/short-term-decision-skill
+```
+
+> 若你只想引用其中的**公式与判断规则**用于课程作业，这属于"非商业性使用 + 署名"，无需额外申请。
 
 ## 贡献
 
