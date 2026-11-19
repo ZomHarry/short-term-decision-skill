@@ -1,0 +1,21 @@
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# Office 临时文件
+~$*
+*.tmp
+
+# 构建与依赖
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+
+# 本次 PDF 解析的中间产物
+_ma_src/
+*.log
