@@ -89,6 +89,35 @@ short-term-decision-skill/
 
 七段缺一即视为不合格。见 `prompts/output-template.md`。
 
+## 打包成可安装的 Skill
+
+Skill 包的标准形态是一个 zip：解压后是**一个与技能同名的目录**，目录里 `SKILL.md` 位于根，带 YAML frontmatter（`name` + `description`），其余文件由 `SKILL.md` 引用。
+
+```powershell
+# Windows
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-skill-zip.ps1 -Version 1.1.1
+
+# macOS / Linux
+cd .. && zip -r short-term-decision-v1.1.1.zip short-term-decision-skill -x "*/dist/*" "*/.git/*"
+```
+
+产物：`dist/short-term-decision-v1.1.1.zip`，14 个文件约 47 KB，包内结构：
+
+```
+short-term-decision/
+├── SKILL.md          ← 入口，frontmatter 决定何时被触发
+├── knowledge/
+├── prompts/
+├── tests/
+├── docs/
+├── README.md
+└── LICENSE
+```
+
+**发布**：在 GitHub Releases 里新建 tag `v1.1.1`，把 zip 作为附件上传——这样别人可以从 Release 直接下载安装包，仓库里不必存二进制文件。
+
+> 注意：脚本文件必须以 **UTF-8 with BOM** 保存，否则 Windows PowerShell 5.1 会按 ANSI 解码中文导致语法错误。
+
 ## 测试用例
 
 `tests/test-cases.md` 含 6 题，覆盖：资源受限选择、自制外购（业务量未知）、亏损产品有转产机会、特殊订货利用闲置产能、半成品深加工（联合成本干扰）、信息缺失。每题的"预期路由方法"可用于验证模型是否走对路径，而不只是答案对不对。
