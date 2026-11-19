@@ -1,0 +1,49 @@
+name: 公式或口径纠错
+description: 指出公式、判断规则、页码引用与你的教材不一致的地方
+title: "[纠错] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        管理会计不同教材的口径差异很大（例如「外购相关成本是否含运费检验费」「共同固定成本如何处理」）。
+        请尽量给出**教材出处**：本仓库的处理原则是**并列标注差异**，而不是挑一个当作唯一答案。
+
+  - type: input
+    id: location
+    attributes:
+      label: 涉及文件与位置
+      placeholder: knowledge/formulas.md 第 3 节 / SKILL.md 第四节
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: 仓库当前的表述
+      description: 粘贴原文，便于定位
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 你认为正确的表述
+      description: 公式请写完整，含变量含义
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: 教材出处（书名／版次／页码）
+      placeholder: 《管理会计》第 X 版，第 123 页
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充说明（可选）
+      description: 例题、推导过程或截图链接
+    validations:
+      required: false

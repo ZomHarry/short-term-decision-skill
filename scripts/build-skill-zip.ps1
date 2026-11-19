@@ -6,8 +6,11 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-Add-Type -AssemblyName System.IO.Compression
-Add-Type -AssemblyName System.IO.Compression.FileSystem
+# Windows PowerShell 5.1 需显式加载；PowerShell 7 已内置，且 Linux 上没有 FileSystem 门面程序集
+if ($PSVersionTable.PSEdition -eq "Desktop") {
+    Add-Type -AssemblyName System.IO.Compression
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+}
 
 $root  = Split-Path -Parent $PSScriptRoot
 $dist  = Join-Path $root "dist"
@@ -39,6 +42,10 @@ foreach ($item in $include) {
 # 包内不需要的大文件：v1.0 合并快照（43KB，与最新内容重复）
 $snapshot = Join-Path $pkg "docs/交付总览.md"
 if (Test-Path $snapshot) { Remove-Item $snapshot -Force }
+
+# docs/assets 只用于 GitHub 页面（社交预览图），不进安装包
+$assets = Join-Path $pkg "docs/assets"
+if (Test-Path $assets) { Remove-Item $assets -Recurse -Force }
 
 # 校验入口
 $skillMd = Join-Path $pkg "SKILL.md"

@@ -10,6 +10,14 @@
 - `README.md` 许可证章节改为"你可以／但必须"对照表，并给出建议署名格式。
 - `SKILL.md` frontmatter 的 `license` 字段同步更新。
 
+### 仓库与发布
+- 新增 `.github/workflows/release.yml`：推送 `v*` tag 时自动自检、打包并创建 Release，zip 作为附件发布。
+- 新增 `.github/workflows/ci.yml` 与 `scripts/check-repo.ps1`：校验必需文件、`SKILL.md` frontmatter、索引引用与本地链接。
+- 新增 `.github/ISSUE_TEMPLATE/`：公式口径纠错与场景建议两个表单，空 Issue 关闭。
+- 新增 `CONTRIBUTING.md`：口径差异的处理原则（并列登记而非二选一）与提交前自检命令。
+- 新增 `scripts/make-social-preview.py` 与 `docs/assets/social-preview.png`（1280×640）。
+- `scripts/build-skill-zip.ps1` 兼容 PowerShell 7 / Linux：仅在 5.1 下加载压缩程序集。
+
 ## [1.1.0] - 2026-11-19
 
 ### 新增

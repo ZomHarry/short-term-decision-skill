@@ -1,0 +1,36 @@
+name: 场景或功能建议
+description: 新题型、新的数据缺失场景、输出格式改进
+title: "[建议] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本 Skill 只处理**短期经营决策**（一年以内、不改变经营规模）。长期投资、资本预算类需求不在范围内。
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 场景描述
+      description: 一句话说明这是哪类决策，以及现有六类场景为什么覆盖不了
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: 示例题目（可选）
+      description: 提供一道带数据的题，能直接变成回归测试用例最好
+    validations:
+      required: false
+
+  - type: dropdown
+    id: layer
+    attributes:
+      label: 期望改动的层次
+      options:
+        - 路由树（决定用哪个方法）
+        - 公式（决定算得对不对）
+        - 输出格式（决定可读性）
+        - 不确定
+    validations:
+      required: true

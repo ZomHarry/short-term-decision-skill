@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: 结构自检与试打包
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 校验仓库结构
+        shell: pwsh
+        run: ./scripts/check-repo.ps1
+
+      - name: 试打包（不发布）
+        shell: pwsh
+        run: |
+          ./scripts/build-skill-zip.ps1 -Version ci-check
+          unzip -l dist/*.zip

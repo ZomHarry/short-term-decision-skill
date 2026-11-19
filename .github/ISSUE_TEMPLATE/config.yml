@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 使用与安装说明
+    url: https://github.com/ZomHarry/short-term-decision-skill/blob/main/README.md
+    about: 先看 README 的「快速开始」与「打包成可安装的 Skill」两节
+  - name: 贡献指南
+    url: https://github.com/ZomHarry/short-term-decision-skill/blob/main/CONTRIBUTING.md
+    about: 改内容前请先读三条硬规则

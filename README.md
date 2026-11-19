@@ -6,6 +6,7 @@
 [![Version](https://img.shields.io/badge/version-1.1.1-blue.svg)](CHANGELOG.md)
 [![Language](https://img.shields.io/badge/language-%E4%B8%AD%E6%96%87-red.svg)](#)
 [![Course](https://img.shields.io/badge/course-%E7%AE%A1%E7%90%86%E4%BC%9A%E8%AE%A1-green.svg)](#)
+[![Skill 包](https://img.shields.io/badge/skill%20zip-%E4%B8%8B%E8%BD%BD-blue.svg)](https://github.com/ZomHarry/short-term-decision-skill/releases)
 
 ## 这是什么
 
@@ -25,6 +26,10 @@
 | 数据缺失时脑补一个数 | 列**信息缺口**并追问，缺关键数据不出结论 |
 
 ## 快速开始
+
+**方式零：下载现成的 Skill 包**
+
+到 [Releases](https://github.com/ZomHarry/short-term-decision-skill/releases) 下载 `short-term-decision-vX.Y.Z.zip`，解压到自己的 skills 目录即可。包内 `SKILL.md` 位于根目录，frontmatter 完整。
 
 **方式一：直接当系统提示词用**
 
@@ -77,7 +82,16 @@ short-term-decision-skill/
 ├── docs/
 │   ├── 教材来源与页码对照.md      # 每个公式、每条规则出自哪一页
 │   ├── 原始交付说明.md            # 第一版交付说明
-│   └── 交付总览.md                # 三块产出合并版（便于一次性投喂）
+│   ├── 交付总览.md                # 三块产出合并版（便于一次性投喂）
+│   └── assets/social-preview.png  # 社交预览图（1280×640）
+├── scripts/
+│   ├── build-skill-zip.ps1        # 打包成可安装的 Skill
+│   └── check-repo.ps1             # 结构自检（CI 同款）
+├── .github/
+│   ├── workflows/ci.yml           # push / PR：自检 + 试打包
+│   ├── workflows/release.yml      # 打 tag：自动发布 Release
+│   └── ISSUE_TEMPLATE/            # 纠错与建议模板
+├── CONTRIBUTING.md
 ├── CHANGELOG.md
 ├── LICENSE
 └── README.md
@@ -114,7 +128,16 @@ short-term-decision/
 └── LICENSE
 ```
 
-**发布**：在 GitHub Releases 里新建 tag `v1.1.1`，把 zip 作为附件上传——这样别人可以从 Release 直接下载安装包，仓库里不必存二进制文件。
+**发布（自动）**：打 tag 并推送，Actions 会自检、打包、建 Release 并挂上附件：
+
+```bash
+git tag v1.1.1
+git push origin v1.1.1
+```
+
+**发布（手动）**：Releases → Draft a new release → 选或建 tag → 把 `dist/*.zip` 拖进附件区 → Publish。
+
+仓库里不存二进制文件（`dist/` 已 gitignore），下载统一走 Release。
 
 > 注意：脚本文件必须以 **UTF-8 with BOM** 保存，否则 Windows PowerShell 5.1 会按 ANSI 解码中文导致语法错误。
 
@@ -151,4 +174,10 @@ https://github.com/ZomHarry/short-term-decision-skill
 
 ## 贡献
 
-欢迎提 Issue 指出公式口径差异（尤其是不同教材对"共同固定成本""外购相关成本是否含运费检验费"的处理）。提交前请先跑一遍 `tests/test-cases.md` 的六道题。
+欢迎提 Issue 指出公式口径差异（尤其是不同教材对"共同固定成本""外购相关成本是否含运费检验费"的处理）。提交前请先跑一遍 `tests/test-cases.md` 的六道题，并执行结构自检：
+
+```powershell
+pwsh -NoProfile -File scripts/check-repo.ps1
+```
+
+细节见 [贡献指南](CONTRIBUTING.md)——特别是"口径差异不消灭，只登记"这条原则。

@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: 打包并发布 Skill
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 结构自检
+        shell: pwsh
+        run: ./scripts/check-repo.ps1
+
+      - name: 构建 Skill 压缩包
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF_NAME -replace '^v', ''
+          ./scripts/build-skill-zip.ps1 -Version $version
+
+      - name: 校验包结构
+        run: |
+          ls -lh dist/
+          unzip -l dist/*.zip
+
+      - name: 创建 GitHub Release 并上传附件
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.zip \
+            --title "管理会计短期经营决策 Skill $GITHUB_REF_NAME" \
+            --generate-notes \
+            --latest
